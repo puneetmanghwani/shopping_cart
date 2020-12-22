@@ -1,12 +1,11 @@
-import { INCREASE_ITEM,DECREASE_ITEM,REMOVE_ITEM } from './actionType';
-import { increaseItem,decreaseItem,removeItem } from './actions';
-import { increaseItemInCart,decreaseItemInCart,removeItemFromCart } from '../Utils/cartOperations';
+import { INCREASE_ITEM,DECREASE_ITEM,REMOVE_ITEM,RESTORE_CART } from './actionType';
+import { increaseItemInCart,decreaseItemInCart,removeItemFromCart,refreshCart } from '../Utils/cartOperations';
 
 import items from './cartItems';
-import { act } from 'react-dom/test-utils';
+
 
 const INITIAL_STATE = {
-    cartItems : items
+    cartItems : JSON.parse(JSON.stringify(items)) 
 }
 
 const cartReducer = (state = INITIAL_STATE,action)=>{
@@ -25,6 +24,11 @@ const cartReducer = (state = INITIAL_STATE,action)=>{
             return {
                 ...state,
                 cartItems : removeItemFromCart(state.cartItems,action.payload)
+            }
+        case RESTORE_CART:
+            return {
+                ...state,   
+                cartItems : refreshCart()
             }
         default:
             return state
