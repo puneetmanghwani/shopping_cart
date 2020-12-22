@@ -4,7 +4,7 @@ import { increaseItem,decreaseItem,removeItem } from '../../Redux/actions';
 import CloseIcon from "@material-ui/icons/Close";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-// import './CartItem.styles.scss';
+import './CartItem.styles.scss';
 
 function CartItem({ item }){
     const dispatch = useDispatch();
@@ -39,10 +39,3 @@ function CartItem({ item }){
 export default CartItem;
 
 
-{/* <div>
-    <li key={item.id}><img src={item.img_url} alt={item.name} /> {item.name}  {item.amount} {item.price}
-        <button onClick={() => dispatch(increaseItem(item))}>increase</button>
-        <button onClick={() => dispatch(decreaseItem(item))}>decrease</button>
-        <button onClick={() => dispatch(removeItem(item))}>remove</button>
-    </li>
-</div> */}

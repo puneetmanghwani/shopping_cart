@@ -42,19 +42,22 @@ export const getItemTypeBasedDiscount = createSelector(
       (accumulatedQty, cartItem) =>
     {
       return cartItem.type === 'fiction'
-        ? accumulatedQty + (cartItem.amount * cartItem.price * 10/100)
+        ? accumulatedQty + (cartItem.amount * cartItem.price * 15/100)
         : 0
     },0)
 );
 
-
 export const getFinalPriceOfCart = createSelector(
-  [getCartItems],
-  (cartItems) =>
-    cartItems.reduce(
-      (accumulatedQty, cartItem) => {
-        return (
-          accumulatedQty + cartItem.amount * cartItem.price -(cartItem.amount * cartItem.price * cartItem.discount) / 100
-        );
-      },0)
+  [getCartItems,getTotalOfCart,getItemsDiscount,getItemTypeBasedDiscount],
+  (cartItems,cartTotal,itemsDiscount,typeBasedDiscount) => cartTotal - itemsDiscount - typeBasedDiscount
 );
+// export const getFinalPriceOfCart = createSelector(
+//   [getCartItems],
+//   (cartItems) =>
+//     cartItems.reduce(
+//       (accumulatedQty, cartItem) => {
+//         return (
+//           accumulatedQty + cartItem.amount * cartItem.price -(cartItem.amount * cartItem.price * cartItem.discount) / 100
+//         );
+//       },0)
+// );

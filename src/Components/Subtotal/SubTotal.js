@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
-// import "./SubTotal.styles.scss";
+import "./SubTotal.styles.scss";
 import {
     getCartItemsCount,
     getTotalOfCart,
@@ -39,7 +39,7 @@ function SubTotal(){
                     </>
                 )}
                 decimalScale={2}
-                value={cartTotal - discount - typeDiscount}
+                value={finalPrice}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
@@ -51,16 +51,3 @@ function SubTotal(){
 export default SubTotal;
 
 
-{/* <div className="total-order">
-    <span style={{ fontSize: "20px", fontWeight: "bold", margin: "10px 20px" }}>
-        Total
-            </span>
-    <div className="order-items">
-        Items({itemCount})&nbsp;:${cartTotal}{" "}
-    </div>
-    <div className="order-discount">
-        Discount&nbsp;:-${discount}
-    </div>
-    <div className="type-discount">Type Discount : -${typeDiscount}</div>
-    <div className="total">Order Total:${finalPrice - typeDiscount}</div>
-</div> */}

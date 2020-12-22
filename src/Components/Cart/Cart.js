@@ -7,7 +7,7 @@ import { restoreCart } from '../../Redux/actions';
 import SubTotal from '../Subtotal/SubTotal';
 import CartItem from '../CartItem/CartItem';
 
-// import './Cart.styles.scss';
+import './Cart.styles.scss';
 
 class Cart extends React.Component {
     render() {
@@ -78,25 +78,3 @@ export default connect(
 
 
                 
-{/* <div>
-                {
-                    this.props.cartItems.length>0
-                    ? (
-                        <div>
-                        {
-                         this.props.cartItems.map(cartItem=>{
-                         return (
-                             <CartItem item={cartItem} />
-                         )
-                        })
-                        }
-                        </div>
-                    )
-                    : (
-                        <div>
-                        <button onClick={()=> this.props.restore()} >Restore </button>
-                        </div>
-                    )
-                }
-                <SubTotal />
-            </div>  */}
