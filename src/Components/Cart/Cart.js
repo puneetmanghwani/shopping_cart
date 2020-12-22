@@ -1,12 +1,17 @@
+
+//  **Library Functions Import***
 import React from "react";
 import { connect } from 'react-redux';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
+//  **Redux actions import**
 import { restoreCart } from '../../Redux/actions'; 
 
+//  ** Components Import**
 import SubTotal from '../Subtotal/SubTotal';
 import CartItem from '../CartItem/CartItem';
 
+// **Css imports**
 import './Cart.styles.scss';
 
 class Cart extends React.Component {
@@ -17,16 +22,16 @@ class Cart extends React.Component {
                     this.props.cartItems.length > 0
                         ? (
                             <>
-                                <div className="checkout__title">
+                                <div className="cart__title">
                                     <ArrowBackIosIcon />
                                     <h1>Order Summary</h1>
                                 </div>
-                                <div className="checkout">
-                                    <div className="checkout__left">
+                                <div className="cart">
+                                    <div className="cart__left">
                                         <hr />
-                                        <div className="items__info">
-                                            <p className="items__infoItemCount">Items({this.props.cartItems.length})</p>
-                                            <p className="items__infoQty">Qty</p>
+                                        <div className="item__description">
+                                            <p className="item__infoCount">Items({this.props.cartItems.length})</p>
+                                            <p className="item__infoQty">Qty</p>
                                             <p className="items__infoPrice">Price</p>
                                         </div>
                                         <hr style={{ marginBottom: "20px" }} />
@@ -39,7 +44,7 @@ class Cart extends React.Component {
                                         }
                                     </div>
 
-                                    <div className="checkout__right">
+                                    <div className="cart__right">
                                         <SubTotal />
                                     </div>
                                 </div>

@@ -1,7 +1,13 @@
+
+//  **Library Functions Import***
 import React from "react";
 import { useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
+
+// **Css imports**
 import "./SubTotal.styles.scss";
+
+// **Cart Calculation Related Imports**
 import {
     getCartItemsCount,
     getTotalOfCart,
@@ -26,10 +32,11 @@ function SubTotal(){
                         <div className="order__info">
                             <h3 style={{ marginTop: "10px" }}>Total</h3>
                             <p style={{ marginTop: "10px" }}>
-                                Items ({itemCount}): ${cartTotal}
+                                Items ({itemCount}) <p style={{ display: "inline",marginLeft:"8.5rem" }} >:&nbsp;&nbsp;${cartTotal} </p>
                             </p>
-                            <p style={{ marginTop: "10px" }}>Discount: -${discount}</p>
-                            <p>Type Discount: -${typeDiscount}</p>
+                            <p style={{ marginTop: "10px" }}>Discount<p style={{ display: "inline", marginLeft: "8.5rem" }}>&nbsp;: -${discount}</p>
+                            </p>
+                            <p>Type Discount<p style={{ display: "inline", marginLeft: "6.3rem" }} >: -${typeDiscount}</p></p>
                         </div>
 
                         <div className="order__total">

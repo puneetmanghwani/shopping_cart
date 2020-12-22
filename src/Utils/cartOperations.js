@@ -3,6 +3,7 @@ import items from '../Redux/cartItems';
 import Swal from 'sweetalert2'
 
 
+// Increasing the quantitiy of item in cart
 export const increaseItemInCart = (cartItems,item) => {
     console.log(items)
     const itemIndex = cartItems.findIndex( cartItem => cartItem.id === item.id  );
@@ -17,6 +18,7 @@ export const increaseItemInCart = (cartItems,item) => {
     return modifiedCart;
 }
 
+// Decreasing the quantitiy of item in cart
 export const decreaseItemInCart = (cartItems,item) => {
     const itemIndex = cartItems.findIndex( cartItem => cartItem.id === item.id  );
     var modifiedCart = [...cartItems];
@@ -38,6 +40,7 @@ export const decreaseItemInCart = (cartItems,item) => {
     return modifiedCart;
 }
 
+// Removing the item from cart
 export const removeItemFromCart = (cartItems,item) => {
     
     const modifiedCart = cartItems.filter( cartItem => cartItem.id !== item.id );
@@ -48,6 +51,7 @@ export const removeItemFromCart = (cartItems,item) => {
     return modifiedCart;
 }
 
+// Refreshing the cart
 export const refreshCart = () => {
     localStorage.clear();
     return JSON.parse(JSON.stringify(items));

@@ -1,30 +1,30 @@
-.checkout {
+.cart {
   display: flex;
   height: max-content;
 }
-.checkout__left {
+.cart__left {
   flex: 0.8;
 }
-.checkout__right {
+.cart__right {
   flex: 0.2;
 }
-.checkout__title {
+.cart__title {
   display: flex;
   padding: 1rem;
   align-items: center;
 }
-.items__info {
+.item__description {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0rem 1rem;
   align-items: center;
   margin: 0rem 1rem;
 }
-.items__infoItemCount {
+.item__infoCount {
   flex: 0.7;
 }
-.items__infoQty {
-  flex: 0.25;
+.item__infoQty {
+  flex: 0.14;
 }
 
 @media screen and(max-width: 768px) {

@@ -1,4 +1,5 @@
 
+// loading the saved state in local storage
 export const loadState = () => {
     try {
         const searializedState = localStorage.getItem('state');
@@ -11,6 +12,7 @@ export const loadState = () => {
     }
 }
 
+// saving the state in local storage
 export const saveState = (state) => {
     try {
         const searializedState = JSON.stringify(state);
