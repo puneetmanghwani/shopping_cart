@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import "./Components/Cart/Cart.styles.scss";
+@import "./Components/CartItem/CartItem.styles.scss";
+@import "./Components/Subtotal/SubTotal.styles.scss";

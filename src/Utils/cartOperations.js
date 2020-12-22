@@ -1,5 +1,7 @@
 
 import items from '../Redux/cartItems';
+import Swal from 'sweetalert2'
+
 
 export const increaseItemInCart = (cartItems,item) => {
     console.log(items)
@@ -27,6 +29,10 @@ export const decreaseItemInCart = (cartItems,item) => {
         }
         else{
             modifiedCart = cartItems.filter( cartItem => cartItem.id !== item.id );
+            Swal.fire({
+                title : `${item.name} has been deleted`,
+                confirmButtonText: 'OK'
+            })
         }
     }
     return modifiedCart;
@@ -35,7 +41,10 @@ export const decreaseItemInCart = (cartItems,item) => {
 export const removeItemFromCart = (cartItems,item) => {
     
     const modifiedCart = cartItems.filter( cartItem => cartItem.id !== item.id );
-
+    Swal.fire({
+        title : `${item.name} has been deleted`,
+        confirmButtonText: 'OK'
+    })
     return modifiedCart;
 }
 

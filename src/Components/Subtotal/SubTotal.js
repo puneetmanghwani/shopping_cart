@@ -1,15 +1,66 @@
 import React from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import CurrencyFormat from "react-currency-format";
+// import "./SubTotal.styles.scss";
+import {
+    getCartItemsCount,
+    getTotalOfCart,
+    getItemsDiscount,
+    getFinalPriceOfCart,
+    getItemTypeBasedDiscount
+} from '../../Utils/cartSubTotalOperations';
 
 function SubTotal(){
-    const cart = useSelector(state => state);
-    const dispatch = useDispatch();
+    const itemCount = useSelector(getCartItemsCount);
+    const cartTotal = useSelector(getTotalOfCart);
+    const typeDiscount = useSelector(getItemTypeBasedDiscount);
+    const discount = useSelector(getItemsDiscount);
+    const finalPrice = useSelector(getFinalPriceOfCart);
+    
 
     return (
-        <div>
-            {cart.cartItems.length}
+        <div className="subtotal">
+            <CurrencyFormat
+                renderText={(value) => (
+                    <>
+                        <div className="order__info">
+                            <h3 style={{ marginTop: "10px" }}>Total</h3>
+                            <p style={{ marginTop: "10px" }}>
+                                Items ({itemCount}): ${cartTotal}
+                            </p>
+                            <p style={{ marginTop: "10px" }}>Discount: -${discount}</p>
+                            <p>Type Discount: -${typeDiscount}</p>
+                        </div>
+
+                        <div className="order__total">
+                            <p>Order total </p>
+                            <strong>{value}</strong>
+                        </div>
+                    </>
+                )}
+                decimalScale={2}
+                value={cartTotal - discount - typeDiscount}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+            />
         </div>
     )
 }
 
 export default SubTotal;
+
+
+{/* <div className="total-order">
+    <span style={{ fontSize: "20px", fontWeight: "bold", margin: "10px 20px" }}>
+        Total
+            </span>
+    <div className="order-items">
+        Items({itemCount})&nbsp;:${cartTotal}{" "}
+    </div>
+    <div className="order-discount">
+        Discount&nbsp;:-${discount}
+    </div>
+    <div className="type-discount">Type Discount : -${typeDiscount}</div>
+    <div className="total">Order Total:${finalPrice - typeDiscount}</div>
+</div> */}
