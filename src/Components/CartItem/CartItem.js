@@ -16,9 +16,9 @@ function CartItem({ item }){
     const dispatch = useDispatch();
 
     return (
-        <div className="checkout__product">
-            <div className="checkout__productInfo">
-                <div className="checkout__productInfoVal">
+        <div className="cart__product">
+            <div className="cart__productInfo">
+                <div className="cart__productInfoVal">
                     <img src={item.img_url} alt={item.name} />
                     <h4>{item.name}</h4>
                 </div>
@@ -31,7 +31,7 @@ function CartItem({ item }){
                 <RemoveIcon
                     onClick={() => dispatch(decreaseItem(item))}
                 />
-                <div className="qtn__val">
+                <div className="item__qty">
                     <p>{item.amount}</p>
                 </div>
                 {/* Increase the item quantity */}

@@ -29,17 +29,17 @@ function SubTotal(){
             <CurrencyFormat
                 renderText={(value) => (
                     <>
-                        <div className="order__info">
+                        <div className="order__description">
                             <h3 style={{ marginTop: "10px" }}>Total</h3>
                             <p style={{ marginTop: "10px" }}>
                                 Items ({itemCount}) <p style={{ display: "inline",marginLeft:"8.5rem" }} >:&nbsp;&nbsp;${cartTotal} </p>
                             </p>
-                            <p style={{ marginTop: "10px" }}>Discount<p style={{ display: "inline", marginLeft: "8.5rem" }}>&nbsp;: -${discount}</p>
+                            <p style={{ marginTop: "10px" }}>Discount<p style={{ display: "inline", marginLeft: "9rem" }}>&nbsp;: -${discount}</p>
                             </p>
-                            <p>Type Discount<p style={{ display: "inline", marginLeft: "6.3rem" }} >: -${typeDiscount}</p></p>
+                            <p>Type Discount<p style={{ display: "inline", marginLeft: "6.8rem" }} >: -${typeDiscount}</p></p>
                         </div>
 
-                        <div className="order__total">
+                        <div className="order__final">
                             <p>Order total </p>
                             <strong>{value}</strong>
                         </div>
